@@ -709,7 +709,40 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   grid-template-columns:1.3fr .8fr;
   gap:60px;
 }
-.contact__form{ display:flex; flex-direction:column; gap:20px; }
+.contact__actions{ display:flex; flex-direction:column; gap:18px; align-self:start; }
+.contact__card{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:26px 28px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--surface);
+  color:var(--text);
+  transition:transform .35s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
+}
+.contact__card:hover{ transform:translateY(-4px); border-color:var(--accent); }
+.contact__card-icon{
+  flex:0 0 auto;
+  width:48px; height:48px;
+  display:grid; place-items:center;
+  border:1px solid var(--line);
+  border-radius:50%;
+  color:var(--accent);
+  transition:background .3s var(--ease), color .3s var(--ease);
+}
+.contact__card-icon svg{ width:22px; height:22px; }
+.contact__card:hover .contact__card-icon{ background:var(--accent); color:var(--bg); }
+.contact__card-text{ display:flex; flex-direction:column; gap:4px; min-width:0; flex:1; }
+.contact__card-title{ font-size:18px; font-weight:500; }
+.contact__card-sub{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  color:var(--text-muted);
+  overflow-wrap:anywhere;
+}
+.contact__card-arrow{ font-size:20px; color:var(--text-faint); transition:transform .3s var(--ease), color .3s var(--ease); }
+.contact__card:hover .contact__card-arrow{ transform:translateX(4px); color:var(--accent); }
 .field{ display:flex; flex-direction:column; gap:8px; }
 .field label{
   font-family:var(--font-mono);
@@ -1011,3 +1044,10 @@ a.contact__value:hover{ color:var(--accent-dim); }
 }
 .modal--reels .modal__close:hover{ background:var(--surface-hover); }
 .modal--reels .card:hover{ transform:none; }
+
+@media (max-width: 480px){
+  .contact__card{ padding:20px 18px; gap:14px; }
+  .contact__card-icon{ width:42px; height:42px; }
+  .contact__card-sub{ font-size:11px; overflow-wrap:normal; }
+  .contact__card-arrow{ display:none; }
+}

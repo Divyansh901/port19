@@ -360,34 +360,6 @@
   });
 
   /* ============================================
-     Contact form: client-side feedback
-  ============================================ */
-  var form = document.getElementById("contactForm");
-  var feedback = document.getElementById("formFeedback");
-  var submitBtn = form.querySelector(".btn");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    if (!form.checkValidity()) {
-      feedback.textContent = "Please fill in every field before sending.";
-      feedback.classList.remove("is-success");
-      return;
-    }
-
-    submitBtn.classList.add("is-loading");
-    feedback.classList.remove("is-success");
-    feedback.textContent = "Sending...";
-
-    window.setTimeout(function () {
-      submitBtn.classList.remove("is-loading");
-      feedback.textContent = "Message sent, thanks! I'll get back to you soon.";
-      feedback.classList.add("is-success");
-      form.reset();
-    }, 900);
-  });
-
-  /* ============================================
      Smooth-scroll for in-page nav links (with mobile close)
   ============================================ */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
